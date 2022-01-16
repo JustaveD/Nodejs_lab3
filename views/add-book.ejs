@@ -1,0 +1,86 @@
+<%- include("includes/head")%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+
+        <header class="header-area overlay">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand">Book-active</a>
+
+                    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                </button>
+
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li><a href="/shop/list" class="nav-item nav-link ">Book List</a></li>
+                            <li><a href="/admin/add-book" class="nav-item nav-link active">Add Book</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        <form action="/admin/add-book" method="POST" enctype="multipart/form-data">
+            <div class="form-control-m">
+                <input type="text" name="title" required>
+                <label for=""><span>Tên sách</span></label>
+            </div>
+            <div class="form-control-m">
+                <input type="text" name="author" required>
+                <label for=""><span>Tác giả</span></label>
+            </div>
+
+            <label for="" style="text-align:left">Thể loại</label>
+            <div class="form-control-m">
+
+                <select class="form-control" name="catId" id="exampleFormControlSelect1">
+                   
+                    <% cat.forEach(e=>{%>
+                        <option value="<%=e.cat_id%>"><%=e.cat_name%></option>
+                    <%})%>
+                    
+                </select>
+
+            </div>
+            <div id="date-picker-example" class="form-control-m" inline="true">
+                <input placeholder="Select date" name="publishDate" type="date" id="example" class="form-control">
+
+
+            </div>
+            <div class="form-control-m">
+                <input type="text" name="publisingCompany" required>
+                <label for=""><span>Nhà xuất bản</span></label>
+            </div>
+            <div class="form-control-m">
+                <input type="text" name="pages" required>
+                <label for=""><span>Số trang</span></label>
+            </div>
+            <div class="form-control-m">
+                <input type="text" name="price" required>
+                <label for=""><span>Giá tiền</span></label>
+            </div>
+
+            <div class="form-control-m">
+                <input type="text" name="description" required>
+                <label for=""><span>Mô tả</span></label>
+            </div>
+            <label for="" id="anh"><span>Ảnh</span></label>
+            <div class="form-control-m">
+                <input type="file" name="image" required>
+            </div>
+            <button type="submit">Thêm</button>
+        </form>
+
+
+
+    </body>
+
+    </html>

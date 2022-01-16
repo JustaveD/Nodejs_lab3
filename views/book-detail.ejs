@@ -1,0 +1,83 @@
+<%- include( "includes/head")%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+
+        <header class="header-area overlay">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand">Book-active</a>
+
+                    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                </button>
+
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li><a href="/shop/" class="nav-item nav-link active " style="pointer-events: none;">Book Detail</a></li>
+                            <li><a href="/shop/list" class="nav-item nav-link ">Book List</a></li>
+                            <li><a href="/admin/add-book" class="nav-item nav-link">Add Book</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="banner">
+                <div class="container">
+                    <h2 style="color:#e9c46a">Họa hổ họa bì nan họa cốt</h2>
+                    <h1> Tri sách tri bìa bất tri</h1>
+                    <h1>nội dung</h1>
+                    <h3 style="color:#e9c46a">Chỉ có</h3>
+                    <h1>Mua sách mới biết nội dung</h1>
+                    <h3 style="color:#e9c46a">MUA ĐI</h3>
+
+                </div>
+            </div>
+        </header>
+
+        <main id="content">
+            <div class="wrapper-2">
+                <div class="image">
+                    <img src="/images/<%=book.imageUrl%>" alt="">
+                </div>
+                <div class="content">
+                    <h2 class="title">
+                        <%=book.book_name%>
+                    </h2>
+                    <p class="author">
+                        <span>Nhà xuất bản: </span>
+                        <%=book.publising_company%>
+                    </p>
+                    <p class="description">
+                        <span>Số trang: </span>
+                        <%=book.pages%>
+                    </p>
+                    <p class="description">
+                        <span>Ngày xuất bản: </span>
+                        <%=book.publish_date %>
+                    </p>
+                    <p class="description">
+                        <span>Thể loại: </span>
+                        <%=cat.cat_name%>
+                    </p>
+                    <p class="description">
+                        <%=book.description%>
+                    </p>
+                    <p class="price">
+                        <%=book.price%> vnd</p>
+                    <div class="btn-buy">Mua ngay</div>
+                </div>
+
+            </div>
+        </main>
+
+        <script src="../script/book-list.js"></script>
+    </body>
+
+    </html>

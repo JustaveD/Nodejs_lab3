@@ -1,0 +1,73 @@
+<%- include("includes/head")%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+
+    <body>
+
+        <header class="header-area overlay">
+            <nav class="navbar navbar-expand-md navbar-dark">
+                <div class="container">
+                    <a href="#" class="navbar-brand">Book-active</a>
+
+                    <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                    <span class="menu-icon-bar"></span>
+                </button>
+
+                    <div id="main-nav" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+
+                            <li><a href="/shop/list" class="nav-item nav-link ">Book List</a></li>
+                            <li><a href="/admin/add-book" class="nav-item nav-link">Add Book</a></li>
+                            <% allCat.forEach(e=>{%>
+                                <li>
+                                    <a href="/shop/cat/<%=e.slug%>" class="nav-item nav-link">
+                                        <%=e.cat_name%>
+                                    </a>
+                                </li>
+                                <% })%>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="banner">
+                <div class="container">
+                    <h1>Đi một ngày đàng, học một sàng khôn</h1>
+                    <p>Có thể bạn không đi, nhưng bạn có thể đọc mà</p>
+
+                </div>
+            </div>
+        </header>
+
+        <main id="content">
+            <div class="wraper">
+
+                <% if(books.length == 0){ %>
+                    <h2>Danh sách trống!</h2>
+
+                    <% }
+                else{
+                    books.forEach(b=>{ %>
+                        <div class="book-item">
+                            <div class="image">
+                                <img src="/images/<%=b.imageUrl %>" alt="">
+                            </div>
+                            <p class="title">
+                                <%=b.book_name%>
+                            </p>
+
+                            <span class="price"><%=b.price%> vnd</span>
+                            <a href="/shop/<%=b.slug%>">Xem chi tiết</a>
+                        </div>
+                        <%})}%>
+
+            </div>
+        </main>
+
+        <script src="../script/book-list.js"></script>
+    </body>
+
+    </html>
